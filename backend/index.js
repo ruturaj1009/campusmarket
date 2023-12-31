@@ -40,8 +40,6 @@ connectDB();
 
 const port = process.env.PORT || 4000;
 
-// mongoose.connect('mongodb+srv://stuffhack92:stuffhack92@campusmarket.guutbgq.mongodb.net/top')
-
 
 app.get('/', (req, res) => {
     res.send('hello rutu')
