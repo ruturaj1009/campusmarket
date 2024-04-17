@@ -5,7 +5,7 @@ import { FaLocationDot } from "react-icons/fa6";
 import { useState } from "react";
 
 function Header(props) {
-  const [loc, setLoc] = useState(null);
+  const [loc, setLoc] = useState(1);
   const [showOver, setshowOver] = useState(false);
 
   const navigate = useNavigate();
@@ -53,7 +53,7 @@ function Header(props) {
         >
           {locations.map((item, index) => {
             return (
-              <option value={`${item.latitude},${item.longitude}`}>
+              <option key={item.latitude} value={`${item.latitude},${item.longitude}`}>
                 {item.placeName}
               </option>
             );

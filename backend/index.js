@@ -5,7 +5,7 @@ var jwt = require('jsonwebtoken');
 const multer = require('multer')
 const productController = require('./controllers/productController');
 const userController = require('./controllers/userController');
-const mongoose = require('mongoose');
+const connectDB = require('./database/db');
 const dotenv = require('dotenv');
 
 const storage = multer.diskStorage({
@@ -18,15 +18,7 @@ const storage = multer.diskStorage({
     }
 });
 
-const connectDB = async()=>{
-    try{
-        const conn =await  mongoose.connect(process.env.MONGO_URL);
-        console.log(`connected to Database ${conn.connection.host}`); 
-    }
-    catch(e){
-        console.log(`Error : ${e}`);
-    }
-}
+
 
 const upload = multer({ storage: storage })
 const bodyParser = require('body-parser')
